@@ -6,6 +6,14 @@ const multer = require("multer");
 const path = require("path");
 const cors = require("cors");
 const port = process.env.PORT || 4000;
+app.use(cors({
+  origin: [
+    'http://localhost:3000',
+    'https://moumon25.github.io/tribaloo/#/',
+    'https://tribalooadminpanel.onrender.com' // ✅ Allow admin panel to access backend
+  ],
+  credentials: true
+}));
 
 // Enable JSON parsing and CORS
 app.use(express.json());
