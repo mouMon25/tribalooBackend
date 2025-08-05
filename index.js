@@ -1,4 +1,4 @@
-const port = 4000;
+const port = "https://tribaloobackend.onrender.com";
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
@@ -10,12 +10,16 @@ const cors = require("cors");
 
 app.use(express.json());
 app.use(cors());
-
+app.use('/images', express.static(path.join(__dirname, 'images')));
 // Database Connection With MongoDB
 mongoose.connect("mongodb+srv://moumon1925:94pMO20@cluster0.korc3rd.mongodb.net/miniEcomm");
 
 // paste your mongoDB Connection string above with password
 // password should not contain '@' special character
+const baseUrl = "https://tribaloobackend.onrender.com/images";
+const imageUrl = `${baseUrl}/${req.file.filename}`;
+
+newProduct.image = imageUrl;
 
 
 //Image Storage Engine 
@@ -250,6 +254,13 @@ app.get("/fix-category", async (req, res) => {
   );
   res.send(`Updated ${result.modifiedCount} products.`);
 });
+// const cors = require("cors");
+
+// app.use(cors({
+//   origin: ['https://imaginative-chaja-5f253d.netlify.app'], // <- Add your Netlify URL here
+//   methods: ['GET', 'POST'],
+//   credentials: true
+// }));
 
 
 
