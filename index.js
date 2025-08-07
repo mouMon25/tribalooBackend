@@ -9,7 +9,7 @@ const port = process.env.PORT || 4000;
 app.use(cors({
   origin: [
     'http://localhost:3000',
-    'https://moumon25.github.io/tribaloo',
+    'https://moumon25.github.io',
     'https://tribalooadminpanel.onrender.com' // ✅ Allow admin panel to access backend
   ],
   credentials: true
