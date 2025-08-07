@@ -85,6 +85,14 @@ app.post("/upload", upload.single("product"), (req, res) => {
     image: `/images/${req.file.filename}`
   });
 });
+app.get('/newcollections', async (req, res) => {
+  try {
+    const products = await Product.find().sort({ _id: -1 }).limit(6);
+    res.json(products);
+  } catch (error) {
+    res.status(500).json({ message: 'Error fetching new collections', error });
+  }
+});
 
 // User signup
 app.post("/signup", async (req, res) => {
