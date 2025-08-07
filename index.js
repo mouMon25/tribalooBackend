@@ -9,7 +9,7 @@ const port = process.env.PORT || 4000;
 app.use(cors({
   origin: [
     'http://localhost:3000',
-    'https://moumon25.github.io/tribaloo/#/',
+    'https://moumon25.github.io/tribaloo',
     'https://tribalooadminpanel.onrender.com' // ✅ Allow admin panel to access backend
   ],
   credentials: true
@@ -17,7 +17,7 @@ app.use(cors({
 
 // Enable JSON parsing and CORS
 app.use(express.json());
-app.use(cors());
+
 
 // Database Connection
 mongoose.connect("mongodb+srv://moumon1925:94pMO20@cluster0.korc3rd.mongodb.net/miniEcomm")
