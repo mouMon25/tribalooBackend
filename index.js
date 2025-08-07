@@ -87,7 +87,7 @@ app.post("/upload", upload.single("product"), (req, res) => {
 });
 app.get('/newcollections', async (req, res) => {
   try {
-    const products = await Product.find().sort({ _id: -1 }).limit(6);
+    const products = await Product.find().sort({ _id: -1 }).limit(8);
     res.json(products);
   } catch (error) {
     res.status(500).json({ message: 'Error fetching new collections', error });
