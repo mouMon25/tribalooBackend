@@ -93,6 +93,15 @@ app.get('/newcollections', async (req, res) => {
     res.status(500).json({ message: 'Error fetching new collections', error });
   }
 });
+app.get('/relatedproducts', async (req, res) => {
+  try {
+    const products = await Product.aggregate([{ $sample: { size: 4 } }]); // return 4 random products
+    res.json(products);
+  } catch (error) {
+    res.status(500).json({ message: 'Error fetching related products', error });
+  }
+});
+
 
 // User signup
 app.post("/signup", async (req, res) => {
